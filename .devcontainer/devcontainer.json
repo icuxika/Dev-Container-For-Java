@@ -15,10 +15,24 @@
       "HTTP_PROXY": "http://192.168.1.124:7890",
       "HTTPS_PROXY": "http://192.168.1.124:7890"
     }
-  }
+  },
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
+  "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "java -version",
@@ -28,4 +42,12 @@
 
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
+
+  "mounts": [
+    {
+      "source": "dev_java_data",
+      "target": "${containerWorkspaceFolder}/projects",
+      "type": "volume"
+    }
+  ]
 }
